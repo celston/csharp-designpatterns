@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns.Builder.Classic
 {
-    internal class Wall
+    public class Wall
     {
         public Wall()
         {

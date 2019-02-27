@@ -1,12 +1,24 @@
-﻿namespace DesignPatterns.Builder.Classic
-{
-    internal class Room
-    {
-        private int n;
+﻿using System;
 
-        public Room(int n)
+namespace DesignPatterns.Builder.Classic
+{
+    public class Room
+    {
+        public Room(int number)
         {
-            this.n = n;
+            Number = number;
+        }
+
+        public int Number { get; private set; }
+
+        public void SetSide(Direction north, Wall wall)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetSide(Direction direction, Door door)
+        {
+            throw new NotImplementedException();
         }
     }
 }

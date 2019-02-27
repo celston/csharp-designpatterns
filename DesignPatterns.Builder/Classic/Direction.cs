@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.Builder.Classic
+﻿namespace DesignPatterns.Builder.Classic
 {
     public class Direction
     {
+        public static Direction North = new Direction();
+        public static Direction South = new Direction();
+        public static Direction East = new Direction();
+        public static Direction West = new Direction();
+
+        protected Direction()
+        {
+        }
     }
 }

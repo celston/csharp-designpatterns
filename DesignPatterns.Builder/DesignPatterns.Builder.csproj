@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classic\CountingMazeBuilder.cs" />
     <Compile Include="Classic\Direction.cs" />
+    <Compile Include="Classic\Door.cs" />
     <Compile Include="Classic\Maze.cs" />
     <Compile Include="Classic\IMazeBuilder.cs" />
     <Compile Include="Classic\MazeGame.cs" />

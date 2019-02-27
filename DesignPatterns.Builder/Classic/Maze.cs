@@ -1,21 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace DesignPatterns.Builder.Classic
 {
     public class Maze
     {
-        internal bool RoomNo(int room)
+        private Dictionary<int, Room> _rooms = new Dictionary<int, Room>();
+
+        public Room RoomNo(int room)
         {
-            throw new NotImplementedException();
+            if (!_rooms.ContainsKey(room))
+            {
+                return null;
+            }
+
+            return _rooms[room];
         }
 
-        internal void AddRoom(Room room)
+        public void AddRoom(Room room)
         {
-            throw new NotImplementedException();
+            _rooms.Add(room.Number, room);
         }
     }
 }

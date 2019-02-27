@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatterns.Builder.Classic
 {
@@ -17,7 +13,12 @@ namespace DesignPatterns.Builder.Classic
 
         public void BuildDoor(int roomFrom, int roomTo)
         {
-            throw new NotImplementedException();
+            var r1 = _currentMaze.RoomNo(roomFrom);
+            var r2 = _currentMaze.RoomNo(roomTo);
+            var door = new Door(r1, r2);
+
+            r1.SetSide(CommonWall(r1, r2), door);
+            r2.SetSide(CommonWall(r1, r2), door);
         }
 
         public void BuildMaze()
@@ -28,12 +29,15 @@ namespace DesignPatterns.Builder.Classic
         public void BuildRoom(int n)
         {
             if (_currentMaze == null) return;
-            if (_currentMaze.RoomNo(n)) return;
+            if (_currentMaze.RoomNo(n) != null) return;
 
             var room = new Room(n);
             _currentMaze.AddRoom(room);
 
-            room.SetSide(North, new Wall());
+            room.SetSide(Direction.North, new Wall());
+            room.SetSide(Direction.South, new Wall());
+            room.SetSide(Direction.East, new Wall());
+            room.SetSide(Direction.West, new Wall());
         }
 
         public Maze GetMaze()
